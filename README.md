@@ -21,3 +21,24 @@ This project was built while learning C++, and was used to practise:
 - designing command parsing and validation;
 - writing automated behavioural tests;
 - building a multi-file project with CMake.
+
+## Features
+
+- Price-time priority matching
+- Partial fills across multiple price levels
+- FIFO ordering within each price level
+- Order cancellation by ID
+- Duplicate order ID protection
+- Trade history
+- Top-of-book reporting
+
+## Building
+
+Requires a C++20 compiler, CMake 3.20+ and Ninja.
+
+```bash
+cmake -S . -B build -G Ninja
+cmake --build build
+
+## Running
+./build/order_book
