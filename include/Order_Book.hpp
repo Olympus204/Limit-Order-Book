@@ -28,7 +28,7 @@ using SellBook =
     std::map<int, PriceLevel>;
 
 
-struct Order_book
+struct OrderBook
 {
 public:
     void process_order(Order incoming);
