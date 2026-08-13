@@ -46,25 +46,32 @@ cmake --build build
 ```
 
 ## Supported commands
-```bash
 ADD <id> <BUY|SELL> <price> <quantity>
-CANCEL<id>
-TOP
+
+CANCEL <id>
+
+TOP 
+
 PRINT
+
 TRADES
+
 QUIT
-```
+
 ## Example
-```bash
 ADD 1 SELL 10000 50
+
 ADD 2 SELL 10100 100
+
 ADD 3 BUY 10200 120
+
 TRADES
+
 TOP
-```
+
 
 ## Tests
-run the test suite with
+Run the test suite with
 ```bash
 ./build/order_book_tests
 ```
