@@ -10,18 +10,6 @@ The implementation uses ordered maps for price levels, FIFO queues within each
 price level, and a secondary active-order index to narrow cancellation searches.
 Prices are stored as integer pence rather than floating-point values.
 
-## What I learned
-
-This project was built while learning C++, and was used to practise:
-
-- separating interfaces and implementations across headers and source files;
-- choosing STL containers based on access and ordering requirements;
-- maintaining invariants across multiple data structures;
-- using iterators, references, maps, deques and unordered maps;
-- designing command parsing and validation;
-- writing automated behavioural tests;
-- building a multi-file project with CMake.
-
 ## Features
 
 - Price-time priority matching
@@ -78,4 +66,16 @@ Run the test suite with
 The test suite covers multi-order fills, FIFO priority, non-crossing orders,
 cancellation behaviour, price-level cleanup, duplicate IDs, and reuse of IDs
 after cancellation or complete fills.
+
+## What I learned
+
+This project was built while learning C++, and was used to practise:
+
+- separating interfaces and implementations across headers and source files;
+- choosing STL containers based on access and ordering requirements;
+- maintaining invariants across multiple data structures;
+- using iterators, references, maps, deques and unordered maps;
+- designing command parsing and validation;
+- writing automated behavioural tests;
+- building a multi-file project with CMake.
 
