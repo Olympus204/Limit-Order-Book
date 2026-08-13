@@ -9,7 +9,7 @@
 
 int main()
 {
-    Order_book book;
+    OrderBook book;
 
     std::string line;
 
