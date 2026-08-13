@@ -1,6 +1,6 @@
 # Limit Order Book
 
-A C++20 limit order book built as a learning project while developing my C++ skills.
+A C++20 limit order book built while learning C++, with a focus on data structures, matching logic and state management.
 
 I chose a limit order book because it requires more than basic syntax: it involves
 data-structure design, price-time priority, state management, parsing, testing,
@@ -34,29 +34,22 @@ cmake --build build
 ```
 
 ## Supported commands
+```text
 ADD <id> <BUY|SELL> <price> <quantity>
-
 CANCEL <id>
-
 TOP 
-
 PRINT
-
 TRADES
-
 QUIT
-
+```
 ## Example
+```text
 ADD 1 SELL 10000 50
-
 ADD 2 SELL 10100 100
-
 ADD 3 BUY 10200 120
-
 TRADES
-
 TOP
-
+```
 
 ## Tests
 Run the test suite with
