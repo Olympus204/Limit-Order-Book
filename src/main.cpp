@@ -4,11 +4,8 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include <stdexcept>
 #include <sstream>
-#include <map>
-#include <deque>
 
 int main()
 {
