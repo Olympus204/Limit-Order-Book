@@ -1,5 +1,20 @@
-#include "Order_Book.hpp"
+#include "order_book.hpp"
 #include <iostream>
+
+namespace
+{
+    int quantity_at_price_level(const PriceLevel& orders)
+    {
+        int quantity{0};
+
+        for (const Order& order : orders)
+        {
+            quantity += order.quantity;
+        }
+
+        return quantity;
+    }
+}
 
 void Order_book::process_order(Order incoming)
 {
@@ -125,18 +140,6 @@ void Order_book::print_orders() const
     }
     std::cout << '\n';
 
-}
-
-int quantity_at_price_level(const PriceLevel& orders)
-{
-    int quantity{0};
-
-    for (const auto& order : orders)
-    {
-        quantity += order.quantity;
-    }
-
-    return quantity;
 }
 
 void Order_book::print_top() const
