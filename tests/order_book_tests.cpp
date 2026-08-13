@@ -15,7 +15,7 @@ void run_test(const char* name, void (*test)())
 
 void test_multi_fill()
 {
-    Order_book book;
+    OrderBook book;
 
     std::vector<Order> orders{
         {1, Side::sell, 10000, 50},
@@ -51,7 +51,7 @@ void test_multi_fill()
 
 void test_fifo()
 {
-    Order_book book;
+    OrderBook book;
     std::vector<Order> orders{
         {1, Side::sell, 10000, 30},
         {2, Side::sell, 10000, 40},
@@ -88,7 +88,7 @@ void test_fifo()
 
 void test_no_cross()
 {
-    Order_book book;
+    OrderBook book;
     std::vector<Order> orders{
         {1, Side::buy,  9900, 100},
         {2, Side::sell, 10000, 100}
@@ -115,7 +115,7 @@ void test_no_cross()
 
 void test_cancel_active_buy()
 {
-    Order_book book;
+    OrderBook book;
     book.process_order({1, Side::buy, 9900, 100});
     assert(book.cancel_order(1));
     assert(book.get_buys().empty());
@@ -123,7 +123,7 @@ void test_cancel_active_buy()
 
 void test_cancel_active_sell()
 {
-    Order_book book;
+    OrderBook book;
     book.process_order({1, Side::sell, 10100, 75});
     assert(book.cancel_order(1));
     assert(book.get_sells().empty());
@@ -131,7 +131,7 @@ void test_cancel_active_sell()
 
 void test_cancel_shared_price()
 {
-    Order_book book;
+    OrderBook book;
 
     std::vector<Order> orders{
         {1, Side::sell, 10000, 30},
@@ -152,7 +152,7 @@ void test_cancel_shared_price()
 
 void test_cancel_only_at_price()
 {
-    Order_book book;
+    OrderBook book;
     std::vector<Order> orders{
         {1, Side::sell, 10000, 30},
         {2, Side::sell, 10100, 40}
@@ -169,7 +169,7 @@ void test_cancel_only_at_price()
 
 void test_cancel_wrong_id()
 {
-    Order_book book;
+    OrderBook book;
     book.process_order({1, Side::buy, 9900, 100});
 
     assert(!book.cancel_order(999));
@@ -179,7 +179,7 @@ void test_cancel_wrong_id()
 
 void test_cancel_after_complete()
 {
-    Order_book book;
+    OrderBook book;
     std::vector<Order> orders{
         {1, Side::sell, 10000, 50},
         {2, Side::buy, 10000, 50}
@@ -198,7 +198,7 @@ void test_cancel_after_complete()
 
 void test_cancel_twice()
 {
-    Order_book book;
+    OrderBook book;
     book.process_order({1, Side::sell, 10000, 50});
 
     assert(book.cancel_order(1));
@@ -208,7 +208,7 @@ void test_cancel_twice()
 
 void test_reuse_id_after_cancel()
 {
-    Order_book book;
+    OrderBook book;
 
     book.process_order({1, Side::buy, 9900, 100});
     assert(book.cancel_order(1));
@@ -231,7 +231,7 @@ void test_reuse_id_after_cancel()
 
 void test_reuse_id_after_fill()
 {
-    Order_book book;
+    OrderBook book;
 
     book.process_order({1, Side::sell, 10000, 50});
     book.process_order({2, Side::buy, 10000, 50});
