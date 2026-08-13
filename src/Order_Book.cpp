@@ -16,7 +16,7 @@ namespace
     }
 }
 
-void Order_book::process_order(Order incoming)
+void OrderBook::process_order(Order incoming)
 {
     if (std::find(used_ids.begin(), used_ids.end(), incoming.id) != used_ids.end())
     {
@@ -69,7 +69,7 @@ void Order_book::process_order(Order incoming)
     }
 }
 
-bool Order_book::cancel_order(int order_id)
+bool OrderBook::cancel_order(int order_id)
 {
     auto location_it{active_orders.find(order_id)};
     if (location_it == active_orders.end())
@@ -119,7 +119,7 @@ bool Order_book::cancel_order(int order_id)
     return false;
 }
 
-void Order_book::print_orders() const
+void OrderBook::print_orders() const
 {
     std::cout << "BUYS\n";
     for (const auto& [price, orders] : buys)
@@ -142,7 +142,7 @@ void Order_book::print_orders() const
 
 }
 
-void Order_book::print_top() const
+void OrderBook::print_top() const
 {
     std::cout << "TOP OF BOOK" << '\n';
     std::cout << "BID ";
@@ -165,17 +165,17 @@ void Order_book::print_top() const
     }
 }
 
-const BuyBook& Order_book::get_buys() const
+const BuyBook& OrderBook::get_buys() const
 {
     return buys;
 }
 
-const SellBook& Order_book::get_sells() const
+const SellBook& OrderBook::get_sells() const
 {
     return sells;
 }
 
-const std::vector<Trade>& Order_book::get_trades() const
+const std::vector<Trade>& OrderBook::get_trades() const
 {
     return trades;
 }
