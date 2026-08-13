@@ -47,6 +47,3 @@ private:
     std::vector<int> used_ids;
     std::unordered_map<int, OrderLocation> active_orders;
 };
-
-
-int quantity_at_price_level(const PriceLevel& orders);
